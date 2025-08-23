@@ -16,7 +16,7 @@ const errorHandler = require("./middlewares/errrorHandler");
 const CommentRoutes = require("./routes/commentRoutes");
 const userRoutes = require("./routes/userRoutes");
 //todo middleware for passing the form
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }));//input form data
 //session  middleware
 app.use(
   session({
