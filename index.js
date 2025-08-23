@@ -10,13 +10,13 @@ const port = process.env.port || 3000;
 require("dotenv").config(); //config the environment files
 // db info pw:JqZLhug33k9tfPBy
 const User = require("./models/User");
-const authRoutes = require("./routes/authroutes");
+const authRoutes = require("./routes/authRoutes");
 const postRoutes = require("./routes/postRoutes");
 const errorHandler = require("./middlewares/errrorHandler");
 const CommentRoutes = require("./routes/commentRoutes");
 const userRoutes = require("./routes/userRoutes");
 //todo middleware for passing the form
-app.use(express.urlencoded({ extended: true }));//input form data
+app.use(express.urlencoded({ extended: true })); //input form data
 //session  middleware
 app.use(
   session({
@@ -50,8 +50,7 @@ app.get("/", (req, res) => {
 app.use("/auth", authRoutes); //authRoutes ku link pannirukom
 app.use("/posts", postRoutes); //postRoutes ku link panirukom
 app.use("/", CommentRoutes); //CommentRoutes ku link panirukom
-app.use("/user",userRoutes); //userRoutes ku link panirukom
-
+app.use("/user", userRoutes); //userRoutes ku link panirukom
 
 //error handler
 app.use(errorHandler);
